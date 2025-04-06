@@ -1,0 +1,246 @@
+@font-face {
+    font-family: 'Simple Handmade';
+    src: url('assets/fonts/SimpleHandmade.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Simple Handmade', sans-serif;
+    font-size: 32px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+*,
+*:hover,
+*:active,
+*:focus {
+    cursor: url('assets/cursor.png'), auto !important;
+}
+
+#MobileNavBar {
+    z-index: 50;
+    /* Higher than any other elements */
+    position: fixed;
+}
+
+
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* .trail {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+    transform: translate(-50%, -50%);
+    animation: MouseTrails 1s forwards;
+} */
+
+@keyframes FallingStars {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh);
+        opacity: 0.5;
+    }
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    font-size: 1rem;
+    padding: 3px 6px;
+    border-radius: 3px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s;
+    max-width: fit-content;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.moon {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.7);
+    z-index: 10;
+    overflow: hidden;
+    animation: glowBlink 3s infinite ease-in-out;
+    transition: opacity 5s ease-in;
+    opacity: 0; /* Initially hidden */
+}
+
+.moon.show {
+    opacity: 1; /* Fades in */
+}
+
+.moon::before {
+    content: "";
+    position: absolute;
+    width: 75%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 50%;
+    left: 30%; /* Makes it a waning crescent */
+}
+
+@keyframes glowBlink {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.tooltip:hover::after,
+.tooltip:focus::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .tooltip::after {
+        font-size: 0.8rem;
+        padding: 2px 4px;
+        max-width: fit-content;
+    }
+}
+
+@keyframes ShootingStars {
+    from {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(50vw, 50vh) scale(0.7); /* Move slower */
+    }
+}
+
+/* @keyframes MouseTrails {
+    from {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(2);
+    }
+} */
+
+@media (max-width: 768px) {
+    .Y9i9ARxJVR {
+        margin-top: -100px;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+
+.hidden-cursor *,
+.hidden-cursor *:hover,
+.hidden-cursor *:active,
+.hidden-cursor *:focus {
+    cursor: none !important;
+}
+
+.paper-plane {
+    position: fixed;
+    font-size: 24px;
+    z-index: 9999;
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes openEnvelope {
+    0% {
+        content: "\f0e0"; /* Closed envelope */
+    }
+    50% {
+        content: "\f2b6"; /* Open envelope */
+    }
+    100% {
+        content: "\f2b6"; /* Keep it open */
+    }
+}
+
+.email-icon:hover i::before {
+    animation: openEnvelope 0.3s forwards;
+    font-family: "Font Awesome 6 Free";
+    content: "\f2b6";
+}
+
+/* Twinkling Stars */
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+.sparkle-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 3s infinite ease-in-out;
+    z-index: -1;
+}
+
+
+
+
